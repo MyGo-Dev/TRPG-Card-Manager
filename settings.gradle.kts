@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "TRPG Card Manager"
 include(":app")
- 
+include(":data")
