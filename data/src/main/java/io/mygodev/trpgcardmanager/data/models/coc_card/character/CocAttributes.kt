@@ -27,7 +27,7 @@ import androidx.room.PrimaryKey
  * @property armorValue 护甲值
  */
 @Entity(
-    tableName = "coc_attributes",
+    tableName = "coc_character_attributes",
     foreignKeys = [ForeignKey(
         entity = BaseInformation::class,
         parentColumns = ["id"],
@@ -36,7 +36,6 @@ import androidx.room.PrimaryKey
     )]
 )
 data class CocAttributes(
-    // 原有字段保持不变
     @PrimaryKey
     @ColumnInfo(name = "character_id", index = true)
     val characterId: Long,

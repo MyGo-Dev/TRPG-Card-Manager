@@ -1,4 +1,4 @@
-package io.mygodev.trpgcardmanager.data.models.coc_card.system
+package io.mygodev.trpgcardmanager.data.models.coc_card.system.skills
 
 import androidx.room.TypeConverter
 

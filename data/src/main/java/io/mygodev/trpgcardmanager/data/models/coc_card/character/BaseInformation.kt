@@ -16,7 +16,9 @@ import java.util.Date
  * @property location 角色当前地点
  * @property currentTime 角色当前时间
  */
-@Entity
+@Entity(
+    tableName = "coc_character_base_info"
+)
 data class BaseInformation(
     @Embedded
     val baseCard: BaseCard,

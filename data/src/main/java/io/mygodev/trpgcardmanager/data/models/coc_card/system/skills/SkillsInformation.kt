@@ -1,4 +1,4 @@
-package io.mygodev.trpgcardmanager.data.models.coc_card.system
+package io.mygodev.trpgcardmanager.data.models.coc_card.system.skills
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -24,7 +24,7 @@ data class SkillsInformation(
     /** 基础成功率（固定值或计算基准值） */
     val baseValue: Int,
 
-    /** 技能专攻分类 */
+    /** 技能专攻分类,如果是独立技能这里为空 */
     val category: SkillCategory?,
 
     /** 计算模式标识 */
