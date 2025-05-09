@@ -1,9 +1,11 @@
-package io.mygodev.trpgcardmanager.data.models.coc_card.character
+package io.mygodev.trpgcardmanager.data.models.card.coc_card.character
 
 import androidx.room.ColumnInfo
 import androidx.room.Embedded
 import androidx.room.Entity
-import io.mygodev.trpgcardmanager.data.models.BaseCard
+import androidx.room.ForeignKey
+import androidx.room.PrimaryKey
+import io.mygodev.trpgcardmanager.data.models.card.CardInfo
 import java.util.Date
 
 /**
@@ -17,11 +19,17 @@ import java.util.Date
  * @property currentTime 角色当前时间
  */
 @Entity(
-    tableName = "coc_character_base_info"
+    tableName = "coc_character_base_info",
+    foreignKeys = [ForeignKey(
+        entity = CardInfo::class,
+        parentColumns = ["id"],
+        childColumns = ["id"],
+        onDelete = ForeignKey.CASCADE
+    )]
 )
 data class BaseInformation(
-    @Embedded
-    val baseCard: BaseCard,
+    @PrimaryKey
+    val id: Long,
 
     @ColumnInfo(name = "character_age")
     val age: Int? = null,

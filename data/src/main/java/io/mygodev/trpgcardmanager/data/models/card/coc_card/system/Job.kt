@@ -1,4 +1,4 @@
-package io.mygodev.trpgcardmanager.data.models.coc_card.system.job
+package io.mygodev.trpgcardmanager.data.models.card.coc_card.system
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -40,4 +40,19 @@ data class JobInformation(
     @ColumnInfo(name = "core_skills")
     val coreSkillRules: String,
     val formulaExample: String
+)
+
+/**
+ * 本职技能选择配置
+ * @property mandatory 必选技能
+ * @property optionalGroups 可选技能
+ */
+data class CoreSkillConfig(
+    val mandatory: List<Long>,
+    val optionalGroups: List<SkillGroup>
+)
+
+data class SkillGroup(
+    val choose: Int,             // 需要选择的数量
+    val from: List<Long>,      // 候选技能ID列表
 )

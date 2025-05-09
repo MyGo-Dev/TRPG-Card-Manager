@@ -1,11 +1,11 @@
-package io.mygodev.trpgcardmanager.data.models.coc_card.system.weapon
+package io.mygodev.trpgcardmanager.data.models.card.coc_card.system
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
+import androidx.room.TypeConverter
 import androidx.room.TypeConverters
-import io.mygodev.trpgcardmanager.data.models.coc_card.system.skills.SkillsInformation
 
 /**
  * COC武器描述
@@ -85,3 +85,64 @@ data class Weapon(
     @ColumnInfo(name = "category")
     val category: WeaponCategory
 )
+
+enum class WeaponCategory {
+    /**
+     * 常规武器
+     */
+    CONVENTIONAL,
+
+    /**
+     * 手枪
+     */
+    HANDGUN,
+
+    /**
+     * 步枪
+     */
+    RIFLE,
+
+    /**
+     * 近战武器
+     */
+    MELEE,
+
+    /**
+     * 爆炸物
+     */
+    EXPLOSIVE
+}
+
+class WeaponCategoryConverter {
+    @TypeConverter
+    fun fromCategory(category: WeaponCategory): String = category.name
+
+    @TypeConverter
+    fun toCategory(name: String): WeaponCategory = WeaponCategory.valueOf(name)
+}
+
+/**
+ * 时代枚举
+ */
+enum class CommonEra {
+    /**
+     * 1920年代
+     */
+    ERA_1920,
+
+    /**
+     * 现代
+     */
+    MODERN
+}
+
+
+// 类型转换器
+class CommonEraConverter {
+    @TypeConverter
+    fun fromSet(eras: Set<CommonEra>): String = eras.joinToString(",")
+
+    @TypeConverter
+    fun toSet(data: String): Set<CommonEra> =
+        data.split(",").map { CommonEra.valueOf(it) }.toSet()
+}

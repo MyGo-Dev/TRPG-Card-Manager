@@ -1,4 +1,4 @@
-package io.mygodev.trpgcardmanager.data.models.coc_card.character
+package io.mygodev.trpgcardmanager.data.models.card.coc_card.character
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
